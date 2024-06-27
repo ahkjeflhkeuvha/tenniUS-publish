@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>shopping</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="default/nav.css">
+    <link rel="stylesheet" href="css/shopping.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+
+<body>
+    <header>
+        <nav class="nav-container">
+            <div class="nav-toggle" id="nav-toggle">
+                <i class="bi bi-list"></i>
+            </div>
+
+            <a href="main.html" class="nav-logo"><img src="img/TenniUs.jpg" alt=""></a>
+
+            <ul class="nav-list">
+                <li class="nav-item"><a href="rocket.html" class="nav-link">라켓</a></li>
+                <li class="nav-item"><a href="ball.html" class="nav-link">볼</a></li>
+                <li class="nav-item"><a href="clothes.html" class="nav-link">의류</a></li>
+                <li class="nav-item"><a href="shoes.html" class="nav-link">잡화</a></li>
+            </ul>
+
+            <div class="nav-personal" id="search">
+                <i class="bi bi-search"></i>
+            </div>
+
+            <div class="nav-personal" id="cart">
+                <a href="shopping.html"><i class="bi bi-bag"></i></a>
+            </div>
+
+            <div class="nav-personal" id="person-circle">
+                <a href="upload.html"><i class="bi bi-person-circle"></i></a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div id="menu">
+            <p id="shopping-cart">장바구니 상품</p>
+            <p id="del"><button>선택상품 삭제</button> | <button>거래완료 삭제</button></p>
+        </div>
+
+        <div id="select-all">
+            <input type="checkbox" name="" id="all">
+            <label for="all">전체 선택</label>
+        </div>
+
+        <section class="menu-container">
+            <article class="container">
+                <input type="checkbox">
+                <span class="product-image"><img class="img-item" src="img/racket.png" alt="테니스라켓사진"></span>
+                <div class="explain-container">
+                    <p class="item-title">BOOM MP L ALTERNATE 헤드테니스라켓</p>
+                    <p class="name">이*욱</p>
+                    <p class="price">318,000원</p>
+                </div>
+                <div class="btn-container">
+                    <button class="purchase-bnt">바로구매</button>
+                    <button class="delete-bnt">삭제</button>
+                </div>
+            </article>
+            <article class="container">
+                <input type="checkbox">
+                <span class="product-image"><img class="img-item" src="img/ball.png" alt="테니스라켓사진"></span>
+                <div class="explain-container">
+                    <p class="item-title">윌슨테니스볼 3캔</p>
+                    <p class="name">이*욱</p>
+                    <p class="price">10,000원</p>
+                </div>
+                <div class="btn-container">
+                    <button class="purchase-bnt">바로구매</button>
+                    <button class="delete-bnt">삭제</button>
+                </div>
+            </article>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="bottom-nav-personal">
+            <i class="bi bi-search"></i>
+            <p>검색</p>
+        </div>
+        <div class="bottom-nav-personal">
+            <a href="main.html">
+                <i class="bi bi-house"></i>
+                <p>홈</p>
+            </a>
+        </div>
+        <div class="bottom-nav-personal">
+            <a href="upload.html">
+                <i class="bi bi-person-circle"></i>
+                <p>마이</p>
+            </a>
+        </div>
+    </footer>
+    <script>
+        // toggle-div 클릭 -> toggle 모양, nav-list 내려오기
+        const toggleDiv = document.getElementsByClassName('nav-toggle')[0]
+        const toggleI = toggleDiv.getElementsByTagName('i')[0]
+        const navList = document.getElementsByClassName('nav-list')[0]
+
+        toggleDiv.onclick = (event) => {
+            navList.classList.toggle('show-menu')
+
+            toggleI.classList.toggle('bi-list')
+            toggleI.classList.toggle('bi-x-lg')
+        }
+
+        var target = document.querySelectorAll('.btn_open');
+        var btnPopClose = document.querySelectorAll('.pop_wrap .btn_close');
+        var targetID;
+
+        // 팝업 열기
+        for (var i = 0; i < target.length; i++) {
+            target[i].addEventListener('click', function () {
+                targetID = this.getAttribute('href');
+                document.querySelector(targetID).style.display = 'block';
+            });
+        }
+
+        // 팝업 닫기
+        for (var j = 0; j < target.length; j++) {
+            btnPopClose[j].addEventListener('click', function () {
+                this.parentNode.parentNode.style.display = 'none';
+            });
+        }
+    </script>
+
+</body>
+
+</html>

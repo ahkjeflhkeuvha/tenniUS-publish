@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Main</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="default/nav.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">\
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+
+<body>
+    <!-- nav container -->
+    <header>
+        <nav class="nav-container">
+            <div class="nav-toggle" id="nav-toggle">
+                <i class="bi bi-list"></i>
+            </div>
+
+            <a href="main.html" class="nav-logo"><img src="img/TenniUs.jpg" alt=""></a>
+
+            <ul class="nav-list">
+                <li class="nav-item"><a href="rocket.html" class="nav-link">라켓</a></li>
+                <li class="nav-item"><a href="ball.html" class="nav-link">볼</a></li>
+                <li class="nav-item"><a href="clothes.html" class="nav-link">의류</a></li>
+                <li class="nav-item"><a href="shoes.html" class="nav-link">잡화</a></li>
+            </ul>
+
+            <div class="nav-personal" id="search">
+                <i class="bi bi-search"></i>
+            </div>
+
+            <div class="nav-personal" id="cart">
+                <a href="shopping.html"><i class="bi bi-bag"></i></a>
+            </div>
+
+            <div class="nav-personal" id="person-circle">
+                <a href="upload.html"><i class="bi bi-person-circle"></i></a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- item container -->
+    <main>
+        <section class="item-container">
+            <article class="items" id="article-5">
+                <a href="#pop_info_5" class="btn_open"><img src="img/item-5.jpg" alt=""></a>
+                <div class="explain">
+                    <h2 class="item">CLASSIC THUNDER G2<br>프린스 테니스 라켓 </h2>
+                    <h3 class="item">189,000원</h3>
+                    <button class="btn cart-btn item"><a href="shopping.html">장바구니</a></button>
+                </div>
+            </article>
+
+            <article class="items" id="article-7">
+                <a href="#pop_info_7" class="btn_open"><img src="img/item-7.jpg" alt=""></a>
+                <div class="explain">
+                    <h2 class="item">CLASSIC THUNDER G2<br>프린스 테니스 라켓 </h2>
+                    <h3 class="item">189,000원</h3>
+                    <button class="btn cart-btn item"><a href="shopping.html">장바구니</a></button>
+                </div>
+            </article>
+        </section>
+
+        <div id="pop_info_5" class="pop_wrap" style="display:none;">
+            <div class="pop_inner">
+                <img src="img/item-5.jpg" alt="">
+                <h2>CLASSIC THUNDER G2<br>프린스 테니스 라켓 </h2>
+                <h3>189,000원</h3>
+                <p>2021년도 구매 후 3번 사용했습니다!!
+                    저랑 무게가 잘 맞지 않아 손이 잘 안 가네요ㅜㅜ
+                    무게는 320g으로 남성분들이 사용하시면 빠르
+                    고 강력한 공 보내실 수 있습니다!!
+                    상태 좋습니다~!</p>
+                <button type="button" class="btn_close">닫기</button>
+            </div>
+        </div>
+
+        <div id="pop_info_7" class="pop_wrap" style="display:none;">
+            <div class="pop_inner">
+                <img src="img/item-7.jpg" alt="">
+                <h2>CLASSIC THUNDER G2<br>프린스 테니스 라켓 </h2>
+                <h3>189,000원</h3>
+                <p>2021년도 구매 후 3번 사용했습니다!!
+                    저랑 무게가 잘 맞지 않아 손이 잘 안 가네요ㅜㅜ
+                    무게는 320g으로 남성분들이 사용하시면 빠르
+                    고 강력한 공 보내실 수 있습니다!!
+                    상태 좋습니다~!</p>
+                <button type="button" class="btn_close">닫기</button>
+            </div>
+        </div>
+    </main>
+
+
+
+    <footer>
+        <div class="bottom-nav-personal">
+            <i class="bi bi-search"></i>
+            <p>검색</p>
+        </div>
+        <div class="bottom-nav-personal">
+            <a href="main.html">
+                <i class="bi bi-house"></i>
+                <p>홈</p>
+            </a>
+        </div>
+        <div class="bottom-nav-personal">
+            <a href="upload.html">
+                <i class="bi bi-person-circle"></i>
+                <p>마이</p>
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        // toggle-div 클릭 -> toggle 모양, nav-list 내려오기
+        const toggleDiv = document.getElementsByClassName('nav-toggle')[0]
+        const toggleI = toggleDiv.getElementsByTagName('i')[0]
+        const navList = document.getElementsByClassName('nav-list')[0]
+
+        toggleDiv.onclick = (event) => {
+            navList.classList.toggle('show-menu')
+
+            toggleI.classList.toggle('bi-list')
+            toggleI.classList.toggle('bi-x-lg')
+        }
+
+        var target = document.querySelectorAll('.btn_open');
+        var btnPopClose = document.querySelectorAll('.pop_wrap .btn_close');
+        var targetID;
+
+        // 팝업 열기
+        for (var i = 0; i < target.length; i++) {
+            target[i].addEventListener('click', function () {
+                targetID = this.getAttribute('href');
+                document.querySelector(targetID).style.display = 'block';
+            });
+        }
+
+        // 팝업 닫기
+        for (var j = 0; j < target.length; j++) {
+            btnPopClose[j].addEventListener('click', function () {
+                this.parentNode.parentNode.style.display = 'none';
+            });
+        }
+    </script>
+</body>
+
+</html>
