@@ -76,6 +76,10 @@ section:nth-child(2) {
     height: 50%;
 }
 
+a {
+    color: black;
+}
+
 #container {
     display: flex;
     flex-wrap: wrap;

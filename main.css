@@ -36,6 +36,10 @@
 
 /* nav css */
 
+a {
+    color: black;
+}
+
 body>header {
     position: absolute;
     top: 0;
@@ -85,17 +89,15 @@ nav {
 
 main {
     min-height: 100%;
-    /* main 요소가 최소한 전체 높이를 차지하도록 */
     position: absolute;
     margin: 0;
     margin-top: var(--nav-height);
-    /* 네비게이션 높이만큼 상단 마진 추가 */
     width: 100%;
     height: 100%;
     padding: 0;
     z-index: -1;
-    /* main 요소를 다른 요소 뒤로 배치 */
 }
+
 
 main>.item-container {
     width: 100%;
@@ -103,6 +105,7 @@ main>.item-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    
 }
 
 .search-container {
@@ -111,10 +114,8 @@ main>.item-container {
     align-items: center;
     position: relative;
     top: -60px;
-    /* 검색 컨테이너의 초기 위치 */
     width: 100%;
     transition: 0.4s all ease-out;
-    /* 위치 변경 할 때 부드럽게 하기 */
 }
 
 .search-container > input {
@@ -122,7 +123,6 @@ main>.item-container {
     height: 10%;
     border: 0;
     border-bottom: 1px solid black;
-    /* 밑줄 */
     padding: 10px;
     font-size: var(--normal-font-size);
     outline: none;
@@ -134,25 +134,45 @@ main>.item-container {
 
 .show-search {
     top: 0;
-    /* 검색이 표시될 때 위치 변경 */
-}
-
-.item-container #article-5, #article-6, #article-7, #article-8 {
-    padding-bottom: 50px;
 }
 
 .items {
     padding: 16px 16px 0;
     width: 22%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
-.items> .explain > img {
-    justify-content: center;
-    width: 100%;
+.items:last-child {
+    margin-bottom: 50px;
+}
+
+.items img {
+    width: 280px;
+    height: 280px;
+}
+
+.items > .explain {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensures the explain content fills available space */
+    flex-grow: 1; /* Ensures explain takes up all available space */
 }
 
 .items > .explain > p {
     display: none;
+}
+
+.items > .explain > img {
+    justify-content: center;
+    max-width: 100%;
+}
+
+.items > .explain > h2, 
+.items > .explain > h3 {
+    margin-top: auto; /* Pushes the h2 and h3 to the bottom */
 }
 
 .item {
@@ -162,6 +182,7 @@ main>.item-container {
 .cart-btn {
     width: 100%;
     height: 40px;
+
     border-radius: 12px;
     border: 4px solid var(--third-color);
     background-color: var(--first-color);
@@ -178,57 +199,56 @@ footer {
 }
 
 .pop_wrap {
-    position: fixed; /* 화면에 고정 위치 */
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, .5); /* 반투명 배경 */
-    font-size: 0; /* 내부 폰트 크기를 0으로 설정하여 불필요한 공간을 없앰 */
-    text-align: center; /* 내부 요소들을 가운데 정렬 */
+    background: rgba(0, 0, 0, .5);
+    font-size: 0;
+    text-align: center;
 }
 
 .pop_wrap:after {
-    display: inline-block; /* 인라인 블록 요소로 설정 */
-    height: 100%; /* 부모 요소의 높이를 100%로 설정 */
-    vertical-align: middle; /* 수직 가운데 정렬 */
-    content: ''; /* 가상 요소의 내용 없음 */
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    content: '';
 }
 
 .pop_wrap .pop_inner {
-    display: inline-block; /* 인라인 블록 요소로 설정 */
+    display: inline-block;
     padding: 20px 30px;
-    background: #fff; /* 배경색 흰색 */
-    width: 50%; /* 너비 설정 */
-    vertical-align: middle; /* 수직 가운데 정렬 */
-    font-size: 15px; /* 폰트 크기 설정 */
-    border-radius: 20px; /* 모서리를 둥글게 설정 */
+    background: #fff;
+    width: 50%;
+    vertical-align: middle;
+    font-size: 15px;
+    border-radius: 20px;
 }
 
 .pop_wrap button {
-    border: 0; /* 테두리 없음 */
-    width: 40%; /* 너비 설정 */
-    height: 40px; /* 높이 설정 */
-    margin: 20px; /* 마진 설정 */
-    border-radius: 20px; /* 모서리를 둥글게 설정 */
-    font-size: var(--normal-font-size); /* 폰트 크기 설정 */
+    border: 0;
+    width: 40%;
+    height: 40px;
+    margin: 20px;
+    border-radius: 20px;
+    font-size: var(--normal-font-size);
 }
 
 .pop_inner > h2 {
-    font-size: var(--h2-font-size); /* 변수로 설정된 h2 폰트 크기 */
-    margin-top: var(--small-margin); /* 변수로 설정된 작은 마진 값만큼 상단 마진 설정 */
+    font-size: var(--h2-font-size);
+    margin-top: var(--small-margin);
 }
 
 .pop_inner > h3 {
-    font-size: var(--h3-font-size); /* 변수로 설정된 h3 폰트 크기 */
-    margin-top: var(--small-margin); /* 변수로 설정된 작은 마진 값만큼 상단 마진 설정 */
+    font-size: var(--h3-font-size);
+    margin-top: var(--small-margin);
 }
 
 .pop_inner > p {
-    font-size: var(--normal-font-size); /* 변수로 설정된 평범한 폰트 크기 */
-    margin-top: var(--small-margin); /* 변수로 설정된 작은 마진 값만큼 상단 마진 설정 */
+    font-size: var(--normal-font-size);
+    margin-top: var(--small-margin);
 }
-
 
 @media screen and (max-width: 1194px) {
     .nav {
@@ -244,11 +264,14 @@ footer {
         top: calc(var(--nav-height) - 163.2px);
         right: 0;
         left: 0;
+
         z-index: -1;
         background-color: hsla(72, 100%, 50%, 0.6);
         flex-direction: column;
         align-items: center;
+
         width: 100%;
+
         backdrop-filter: blur(8px);
     }
 
@@ -276,8 +299,8 @@ footer {
     }
 
     .items {
-        width: 290px;
-        height: fit-content;
+        width: 300px;
+        height: 450px;
         justify-content: center;
     }
 
@@ -304,11 +327,14 @@ footer {
         position: fixed;
         bottom: 0;
         z-index: 100;
+
         width: 100%;
         height: var(--nav-height);
+
         display: flex;
         justify-content: space-around;
         align-items: center;
+
         background-color: var(--first-color);
         box-shadow: 1px 0px 16px rgb(203, 203, 203);
     }
@@ -335,17 +361,24 @@ footer {
     .items {
         display: flex;
         width: 100%;
+        height: fit-content;
+        flex-direction: row;
     }
     .items img {
         width: 150px;
         height: 150px;
+        object-fit: contain;
+    }
+    .explain {
+        width: 55%;
+    }
+    .items:last-child {
+        margin-bottom: 50px;
     }
     .btn_open {
         width: 150px;
     }
-    .item-container > #article-5, #article-6, #article-7 {
-        padding-bottom: 0;
-    }
+
     .explain {
         display: flex;
         flex-direction: column;
