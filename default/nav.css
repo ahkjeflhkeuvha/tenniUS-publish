@@ -160,6 +160,10 @@ footer {
     footer a {
         color: black;
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     .bottom-nav-personal p {

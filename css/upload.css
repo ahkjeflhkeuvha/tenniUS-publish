@@ -303,6 +303,9 @@ label {
         height: 50%;
     }
 
+    .btn-container {
+        margin-top: 20px;
+    }
     button {
         margin-right: 20px;
         width: 30%;

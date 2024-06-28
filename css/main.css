@@ -132,22 +132,43 @@ main>.item-container {
     top: 0;
 }
 
-.item-container #article-5, #article-6, #article-7, #article-8 {
-    padding-bottom: 50px;
-}
-
 .items {
     padding: 16px 16px 0;
     width: 22%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
-.items> .explain > img {
-    justify-content: center;
-    width: 100%;
+.items:last-child {
+    margin-bottom: 50px;
+}
+
+.items img {
+    width: 280px;
+    height: 280px;
+}
+
+.items > .explain {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensures the explain content fills available space */
+    flex-grow: 1; /* Ensures explain takes up all available space */
 }
 
 .items > .explain > p {
     display: none;
+}
+
+.items > .explain > img {
+    justify-content: center;
+    max-width: 100%;
+}
+
+.items > .explain > h2, 
+.items > .explain > h3 {
+    margin-top: auto; /* Pushes the h2 and h3 to the bottom */
 }
 
 .item {
@@ -274,8 +295,8 @@ footer {
     }
 
     .items {
-        width:290px;
-        height: fit-content;
+        width: 300px;
+        height: 450px;
         justify-content: center;
     }
 
@@ -336,17 +357,24 @@ footer {
     .items {
         display: flex;
         width: 100%;
+        height: fit-content;
+        flex-direction: row;
     }
     .items img {
         width: 150px;
-        aspect-ratio: 1/1;
+        height: 150px;
+        object-fit: contain;
+    }
+    .explain {
+        width: 55%;
+    }
+    .items:last-child {
+        margin-bottom: 50px;
     }
     .btn_open {
         width: 150px;
     }
-    .item-container > #article-5, #article-6, #article-7 {
-        padding-bottom: 0;
-    }
+
     .explain {
         display: flex;
         flex-direction: column;
