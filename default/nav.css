@@ -36,6 +36,10 @@
 
 /* nav css */
 
+a {
+    color: black;
+}
+
 body>header {
     position: absolute;
     top: 0;
